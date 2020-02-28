@@ -8,12 +8,18 @@ const client = Binance({
 	apiSecret: config.SECRET_KEY
 });
 
-client
-	.openOrders({
-		symbol: 'BNBBTC'
-	})
-	.then(result => {
-		console.log(result);
-		console.log(result.length);
-	})
-	.catch(err => {});
+client.accountInfo().then(result => {
+	console.log(result);
+})
+
+// client
+// 	.openOrders({
+// 		symbol: 'USDCUSDT'
+// 	})
+// 	.then(result => {
+// 		console.log(result);
+// 		console.log(result.length);
+// 	})
+// 	.catch(err => {
+// 		console.log(err);
+// 	});

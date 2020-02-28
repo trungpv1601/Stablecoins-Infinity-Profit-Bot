@@ -47,7 +47,7 @@ total_report = db
 if (total_report == 0) {
 	profit_day = total_profit;
 	profit_day_percentage = total_profit_percentage;
-	getJSON('http://localhost', function(error, response) {
+	getJSON('http://localhost:82', function(error, response) {
 		total_profit = parseFloat(response.profit['USD'], 8);
 		date = dateFormat(new Date(), 'dd/mm/yyyy');
 		saldo_USDT = parseFloat(response.balances['usdt'], 8);
@@ -81,7 +81,7 @@ if (total_report == 0) {
 }
 
 var task = cron.schedule('0  0  *  *  *', () => {
-	getJSON('http://localhost', function(error, response) {
+	getJSON('http://localhost:82', function(error, response) {
 		total_report = db
 			.get('reports')
 			.size()

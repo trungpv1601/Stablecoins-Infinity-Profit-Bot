@@ -688,7 +688,8 @@ function simpleStrategy() {
 							sellPrice > config.SELL_MIN
 						) {
 							if (currencyBalanceFree > 20 && currencyBalanceFree <= sellAmount) {
-								sellAmount = parseFloat(currencyBalanceFree).toFixed(2);
+								// sellAmount = parseFloat(currencyBalanceFree).toFixed(2);
+								sellAmount = parseFloat(currencyBalanceFree - 0.005).toFixed(2);
 							}
 							client
 								.order({
